@@ -19,4 +19,7 @@ head -n2  chunkcounts.out |tail -n1 | tr ' ' '\n' | awk '$1~/^[0-9]/' - |  awk '
 
 #convert bim to bed
 cat OMNI.bim |awk '{print $1"\t"$4-1"\t"$4}' > OMNI_positions.bed
+
+#get problematic snps (useful when updating genome build of SNP dataset)
+grep $'C\tG\|G\tC\|A\tT\|T\tA' 
 ```
