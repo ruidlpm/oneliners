@@ -22,4 +22,8 @@ cat OMNI.bim |awk '{print $1"\t"$4-1"\t"$4}' > OMNI_positions.bed
 
 #get problematic snps (useful when updating genome build of SNP dataset)
 grep $'C\tG\|G\tC\|A\tT\|T\tA'<DATASET.bim> > to_rm.snp
+
+#estimate size of files with certain extension (from http://unix.stackexchange.com/questions/41550)
+find -type f -name '*.bam' -exec du -ch {} + | grep total$
+
 ```
